@@ -1,0 +1,11 @@
+1. How would you change the executable name from main to cselab?
+
+    When using "g++ <source> -o <executable>" to compile, you can use the <executable> option to change it from default "main" to "cselab".
+
+2. What happens when you compile using g++ <source> only?
+
+    When you compile using "g++ <source>" only, it will create an executable called "a" which can be executed from the terminal with "./a".
+
+3. How can you remove the line using namespace std; from your program and get it to compile?
+
+    If you remove the line "using namespace std;" and preface all std library commands with "std::" will allow you to compile properly.

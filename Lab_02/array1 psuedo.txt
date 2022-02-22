@@ -1,0 +1,50 @@
+string input
+
+cout << "Enter a length:    "
+cin >> input
+try {
+    int length = stoi(input)
+    if(length < 1){
+        cout << "invalid length"
+        return 0 //ends program
+    }
+} catch(expression e) {
+    cout << "invalid input"
+    return 0 //ends program
+}
+
+cout << "enter the array contents separated by spaces"
+getline(input)
+
+int arr[length]
+int pos
+string temp
+
+for(int i = 0; i < length; i++){
+    pos = input.find(" ")
+    if(pos > 0){
+        temp = input.substr(0, pos)
+        arr[i] = stoi(temp)
+        input.replace(0, pos, "")
+    }else{
+        arr[i] = stoi(input.begin(), input.end())
+    }
+}
+
+bool increasing = true
+
+cout << "{  "
+
+for(int i = 0; i < length; i++){
+    cout << arr[i] << "  "
+    if(arr[i] > arr[i+1]){
+        bool increasing = false
+    }
+}
+cout << "}" << endl
+
+if(increasing){
+    cout << "The array is increasing."
+}else{
+    cout << "The array is not increasing."
+}

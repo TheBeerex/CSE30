@@ -1,0 +1,42 @@
+string input
+int sideLength
+cout << "enter the \"side length\" of the 2d array    "
+cin >> input
+sideLength = stoi(input)
+if(sidelength < 1 || sidelength > 10){
+    cout << "invalid range"
+    return 0 //end program
+}
+
+int arr[sideLength][sideLength]
+
+int pos;
+string temp;
+for(int i = 0; i < sideLength; i++){
+    cout << "enter row " < i+1 < " of integers for the 2d array, separated by spaces" << endl
+    getline(input);
+
+    for(int j = 0; j < length; j++){
+        pos = input.find(" ");
+        if(pos > 0){
+            temp = input.substr(0, pos);
+            arr[j][i] = stoi(temp);
+            input.replace(0, pos+1, ""); 
+        }else{
+            arr[j][i] = stoi(input);
+        }
+    }
+}
+
+int negCounter = 0
+for(int i = 0; i < sideLength*sideLength; i++){
+    if(arr[i] < 0){
+        negCounter++
+    }
+}
+
+if(negCounter > 0){
+    cout << "there are " << negCounter << " negative integers in the 2d array"
+}else{
+    cout << "there are no negative integers in the 2d array"
+}
